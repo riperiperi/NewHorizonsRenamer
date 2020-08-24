@@ -1,0 +1,135 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworks>net46;netcoreapp3.1</TargetFrameworks>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>NHSE</AssemblyName>
+    <PackageId>NHSE</PackageId>
+    <Product>NHSE</Product>
+    <Description>Animal Crossing - New Horizons Save Editor</Description>
+    <StartupObject>NHSE.WinForms.Program</StartupObject>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <LangVersion>8</LangVersion>
+    <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x86</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NHSE.Core\NHSE.Core.csproj" />
+    <ProjectReference Include="..\NHSE.Injection\NHSE.Injection.csproj" />
+    <ProjectReference Include="..\NHSE.Sprites\NHSE.Sprites.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Controls\ItemEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\ItemEditor.Designer.cs">
+      <DependentUpon>ItemEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Update="Subforms\Map\BuildingHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Map\BulkSpawn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Map\MuseumEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Map\LandFlagEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Map\PatternEditorPRO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Map\PatternEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Map\PlayerHouseEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Map\VillagerHouseEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Map\PlayerHouseFlagEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Player\MiscPlayerEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Player\ReactionEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Player\FlagEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\PropertyEditor - Copy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Map\FieldItemEditor.cs" />
+    <Compile Update="Subforms\SingleObjectEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\SingleItemEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\PropertyEditor - Copy.Designer.cs">
+      <DependentUpon>PropertyEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Subforms\Player\ItemReceivedEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Player\AchievementEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\SysBot\SysBotRAMEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Villager\SaveRoomFloorWallEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Villager\VillagerMemoryEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Subforms\Villager\VillagerFlagEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net4')) AND '$(Configuration)' == 'Release'">
+    <PackageReference Include="Costura.Fody" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\network\" />
+  </ItemGroup>
+
+</Project>
