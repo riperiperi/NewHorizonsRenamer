@@ -31,11 +31,11 @@ namespace NewHorizonsRenamer
 
                 foreach (string dir in list)
                 {
-                    if (File.Exists(Path.Combine(dir, "1/main.dat")) &&
-                        File.Exists(Path.Combine(dir, "1/mainHeader.dat")) &&
-                        Directory.Exists(Path.Combine(dir, "1/Villager0")))
+                    if (File.Exists(Path.Combine(dir, "0/main.dat")) &&
+                        File.Exists(Path.Combine(dir, "0/mainHeader.dat")) &&
+                        Directory.Exists(Path.Combine(dir, "0/Villager0")))
                     {
-                        return Path.Combine(dir, "1");
+                        return Path.Combine(dir, "0");
                     }
                 }
             }
